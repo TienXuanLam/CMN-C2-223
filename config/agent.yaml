@@ -1,0 +1,21 @@
+# Agent Manifest — AgentRegistry entry point
+id: "CMN-C2-223"
+name: "CMNFaraQAAgent"
+namespace: "cmn"
+version: "1.0.0"
+enabled: true
+category: "Cat 2"
+generation_mode: "llm"
+industry: "CMN"
+
+base_type: "AgentBaseGraph"
+class: "src.graph.graph.CMNFaraQAAgent"
+required_trust_level: "VERIFIED_EXTERNAL"
+
+requires:
+  # ResponseGenerateNode resolves these per-invocation via
+  # InvocationContext.from_state(state).secrets.require(...), which raises
+  # (caught by the node's own except block) rather than silently defaulting
+  # when a key is missing.
+  secrets: ["AZURE_OPENAI_API_KEY", "AZURE_OPENAI_ENDPOINT", "AZURE_OPENAI_DEPLOYMENT"]
+  extras: ["openai"]

@@ -1,0 +1,15 @@
+max_retry: 2
+memory_enabled: false
+timeout_s: 60
+hitl:
+  enabled: false
+
+# File-backed knowledge bases. Paths are resolved within the project root.
+fara_kb_path: "kb/fara7b_core.jsonl"
+japan_kb_path: "kb/japan_deployment.jsonl"
+top_k: 5
+
+llm:
+  model: "gpt-4o-mini"
+  temperature: 0.2
+  max_tokens: 1200
